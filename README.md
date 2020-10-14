@@ -1,4 +1,4 @@
-#CLI tool to analyze logs
+# CLI tool to analyze logs
 
 Spec: Write a CLI tool in rust which reads a file where each line is an arbitrary json object that includes a fiedl called `type`. I should output a table containing the number of objects with each `type`, and a total byte size of all the messages each `type`.
 
