@@ -24,9 +24,8 @@ async fn get_file_contents(filename: &str) -> Result<String, ()> {
 
 /// really ugly method to find the length of a number's string representation
 fn get_str_len(n: usize) -> usize {
-    let log = (n as f32).log(10_f32);
-    let ceil = log.ceil();
-    (ceil as usize) + if ceil == log { 1 } else { 0 }
+    // (n + 1) solves the problem with powers of 10 giving a lower results
+    ((n + 1) as f32).log(10_f32).ceil() as usize
 }
 
 #[tokio::main]
