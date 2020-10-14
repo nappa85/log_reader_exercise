@@ -93,12 +93,12 @@ async fn main() -> Result<(), ()> {
 
         // prepare table headers
         println!("┏━{0:━>1$}━┳━{0:━>2$}━┳━{0:━>3$}━┓", "", col1_width, col2_width, col3_width);
-        println!("┃ {3:0$} ┃ {4:1$} ┃ {5:2$} ┃", col1_width, col2_width, col3_width, "Type", "Count", "Bytes");
+        println!("┃ {3:^0$} ┃ {4:^1$} ┃ {5:^2$} ┃", col1_width, col2_width, col3_width, "Type", "Count", "Bytes");
         println!("┡━{0:━>1$}━╇━{0:━>2$}━╇━{0:━>3$}━┩", "", col1_width, col2_width, col3_width);
 
         // print table body
         dict.into_iter().for_each(|(log_type, (count, bytes))| {
-            println!("│ {3:0$} │ {4:1$} │ {5:2$} │", col1_width, col2_width, col3_width, log_type.unwrap_or_else(String::new), count, bytes);
+            println!("│ {3:<0$} │ {4:>1$} │ {5:>2$} │", col1_width, col2_width, col3_width, log_type.unwrap_or_else(String::new), count, bytes);
         });
 
         // close table
