@@ -59,7 +59,7 @@ async fn main() -> Result<(), ()> {
                 .map_err(|e| debug!("Error deserializing row: {}", e))
                 .ok()
                 .and_then(|json| json.get("type").map(Value::to_string));
-            let entry = dict.entry(row_type).or_insert((0_usize, 0_usize));
+            let entry = dict.entry(row_type).or_insert((0, 0));
             entry.0 += 1;
             entry.1 += s.len();
             dict
